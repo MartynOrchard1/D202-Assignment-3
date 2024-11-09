@@ -1,6 +1,6 @@
 using Xunit;
-using TemperatureSensorApp.Models;
-using SensorServices;
+using TempSensorModels; // Matches the namespace in Sensor.cs
+using TempSensorApp.services; // Matches the namespace in Service.cs
 using System;
 using System.IO;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace TempSensorApp.Tests
         }
 
         [Fact]
-        public void InitSensor()
+        public void InitSensor_ShouldReturnSensor_WithCorrectValues()
         {
             // Arrange & Act
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
