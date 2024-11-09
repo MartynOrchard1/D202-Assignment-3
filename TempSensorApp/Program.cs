@@ -1,8 +1,8 @@
 ﻿// Import Statements
 using TempSensorApp.services;
-using TempSensorApp.models;
+using TempSensorModels;
 using System;
-using System.Threading.tasks;
+using System.Threading.Tasks;
 
 namespace TempSensorApp
 {
@@ -10,10 +10,10 @@ namespace TempSensorApp
     {
         static async Task Main(string[] args)
         {
-            var sensorService = new SensorServeice();
+            var sensorService = new SensorService();
             var sensor = sensorService.initSensor("Sensor 1", "Data Center", 22, 24);
 
-            console.writeline("Starting temperature sensor simulation...");
+            Console.WriteLine("Starting temperature sensor simulation...");
             await sensorService.StartSensor(sensor);
         }
     }
