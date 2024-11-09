@@ -12,8 +12,7 @@ namespace SensorServices
     // Define Class
     public class SensorService
     {
-        // Random init
-        private Random _random = new Random();
+        private readonly SensorService _service;
 
         // Setup Sensor
         public Sensor InitSensor(string name, string location, double minValue, double maxValue) 
