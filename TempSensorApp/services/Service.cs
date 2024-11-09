@@ -20,6 +20,12 @@ namespace Sensor Services
             return new Sensor { name = name, location = location, minValue = minValue, maxValue = maxValue }
         }
 
-        
+        public async Task StartSensor(Sensor sensor)
+        {
+            while (true) 
+            {
+                
+            }
+        }
     }
 }
