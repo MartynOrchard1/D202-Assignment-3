@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 // Define Sensor Object
-namespace TempSensor Models 
+namespace TempSensorModels 
 {
     public class Sensor 
     {
