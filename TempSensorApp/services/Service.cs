@@ -24,8 +24,22 @@ namespace Sensor Services
         {
             while (true) 
             {
-                
+                var simulatedData = simulateData(sensor);
+                bool isValid = ValidateData(simulatedData, sensor);
+
+                if (isValid)
+                {
+                    LogData(simulatedData);
+                    StoreData(sensor, simulatedData);
+
+                    if (Anomaly(sensor))
+                    {
+                        Console.writeline("Anomaly detected!");
+                    }
+                }
             }
+
+            await Task.delay(1000); // Delay Task
         }
     }
 }
