@@ -1,5 +1,8 @@
-// Define Sensor Object
+// Import Statements
+using System;
+using System.Collections.Generic;
 
+// Define Sensor Object
 namespace TempSensor Models 
 {
     public class Sensor 
@@ -8,7 +11,8 @@ namespace TempSensor Models
         public string Location { get; set; }
         public double MinValue { get; set; }
         public double MaxValue { get; set; }
-        public bool isFaulty { get; set; }
         public List<double> DataHistory { get; set; } = new List<double>();
+        public bool isFaulty { get; set; }
+
     }
 }
