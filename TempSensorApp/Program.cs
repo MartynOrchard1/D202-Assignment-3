@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Import Statements
+using TempSensorApp.services;
+using TempSensorApp.models;
+using System.Threading.tasks;
+
