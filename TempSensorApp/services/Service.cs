@@ -75,5 +75,11 @@ namespace Sensor Services
                 sensor.DataHistory.RemoveAt(0); // Limits Data Store to 100 entries
             }
         }
+
+        // Detect Anomalies
+        public bool AnomalyDetection(Sensor sensor)
+        {
+            
+        }
     }
 }
