@@ -42,5 +42,11 @@ namespace Sensor Services
 
             await Task.delay(1000); // Delay Task
         }
+
+        // Simulate Sensor Data
+        public double SimulateData(Sensor sensor)
+        {
+            
+        }
     }
 }
