@@ -57,5 +57,11 @@ namespace Sensor Services
         {
             return data >=sensor.MinValue && data <= sensor.maxValue; // Validates the Sensor Data
         }
+
+        // Log Sensor Data
+        public void Log(double data) 
+        {
+            
+        }
     }
 }
