@@ -3,7 +3,7 @@ using TempSensorApp.services;
 using TempSensorApp.models;
 using System.Threading.tasks;
 
-namespace TempSensor 
+namespace TempSensorApp
 {
     class Program
     {

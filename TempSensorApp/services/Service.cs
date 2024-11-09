@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TemperatureSensorApp.Models;
 
 // Setup namespace
-namespace SensorServices 
+namespace TempSensorApp.services 
 {
     // Define Class
     public class SensorService 
