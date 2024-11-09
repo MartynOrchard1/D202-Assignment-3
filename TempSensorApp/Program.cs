@@ -10,9 +10,9 @@ namespace TempSensor
         static async Task Main(string[] args)
         {
             var sensorService = new SensorServeice();
-            var sensor = sensorService.initSensor("Sensor 1", "Data Center", 22, 24)
+            var sensor = sensorService.initSensor("Sensor 1", "Data Center", 22, 24);
 
-            console.writeline("Starting temperature sensor simulation...")
+            console.writeline("Starting temperature sensor simulation...");
             await sensorService.StartSensor(sensor);
         }
     }
