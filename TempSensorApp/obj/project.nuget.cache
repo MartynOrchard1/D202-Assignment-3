@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9EIJl5QYfeyElMjuvsM8p1Axh4jLJPG1z/3WN0lpVA+7Uo2ywT8x6YWRl8jtJobSFKziP7FrHgK5qQvXC5JVBw==",
+  "dgSpecHash": "cwE7y0EbUk3q2EFOjN7gqpwL/lcHahcB5yKv0I6KI85RSpgx4oRxesFah/zgV6ns4eJ1BPtY9z5jFxlCT8v0zw==",
   "success": true,
   "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit\\2.9.2\\xunit.2.9.2.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.analyzers\\1.16.0\\xunit.analyzers.1.16.0.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.assert\\2.9.2\\xunit.assert.2.9.2.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.core\\2.9.2\\xunit.core.2.9.2.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.extensibility.core\\2.9.2\\xunit.extensibility.core.2.9.2.nupkg.sha512",
+    "C:\\Users\\leroy\\.nuget\\packages\\xunit.extensibility.execution\\2.9.2\\xunit.extensibility.execution.2.9.2.nupkg.sha512"
+  ],
   "logs": []
 }
