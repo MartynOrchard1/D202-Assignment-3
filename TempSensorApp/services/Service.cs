@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using TemperatureSensorApp.Models;
 
 // Setup namespace
-namespace Sensor Services  
+namespace SensorServices  
 {
     // Define Class
     public class sensorService
