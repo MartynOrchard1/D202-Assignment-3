@@ -10,15 +10,15 @@ using TemperatureSensorApp.Models;
 namespace SensorServices  
 {
     // Define Class
-    public class sensorService
+    public class SensorService
     {
         // Random init
-        private rand _random = new rand();
+        private Random _random = new Random();
 
         // Setup Sensor
-        public Sensor initSensor(string name, string location, double minValue, double maxValue) 
+        public Sensor InitSensor(string name, string location, double minValue, double maxValue) 
         {
-            return new Sensor { name = name, location = location, minValue = minValue, maxValue = maxValue }
+            return new Sensor { Name = name, Location = location, MinValue = minValue, MaxValue = maxValue };
         }
 
         // Start the Sensor
