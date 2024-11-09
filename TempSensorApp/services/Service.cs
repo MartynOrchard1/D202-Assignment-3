@@ -69,7 +69,11 @@ namespace Sensor Services
         // Store Sensor Data
         public void Store(Sensor sensor, double data)
         {
-            
+            sensor.DataHistory.Add(data);
+            if (sensor.DataHistory.Count > 100) 
+            {
+                sensor.DataHistory.RemoveAt(0); // Limits Data Store to 100 entries
+            }
         }
     }
 }
