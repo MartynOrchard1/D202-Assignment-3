@@ -17,7 +17,7 @@ namespace TempSensorApp.services
         // Setup Sensor
         public Sensor InitSensor(string name, string location, double minValue, double maxValue) 
         {
-            return new Sensor { Name = name, Location = location, MinValue = minValue, MaxValue = maxValue }; 
+            return new Sensor { Name = name, Location = location, MinValue = minValue, MaxValue = maxValue, }; 
         }
 
         // Start the Sensor

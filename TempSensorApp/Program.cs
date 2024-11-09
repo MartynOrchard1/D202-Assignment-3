@@ -11,7 +11,7 @@ namespace TempSensorApp
         static async Task Main(string[] args)
         {
             var sensorService = new SensorService();
-            var sensor = sensorService.initSensor("Sensor 1", "Data Center", 22, 24);
+            var sensor = sensorService.InitSensor("Sensor 1", "Data Center", 22, 24);
 
             Console.WriteLine("Starting temperature sensor simulation...");
             await sensorService.StartSensor(sensor);
