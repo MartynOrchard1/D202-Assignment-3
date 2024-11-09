@@ -46,7 +46,12 @@ namespace Sensor Services
         // Simulate Sensor Data
         public double SimulateData(Sensor sensor)
         {
-            
+            double noise = _random.NextDouble() * 2 - 1; // Looks for noise between -1 and 1
+            double value = sensor.MinValue + noise;
+            if (sensor.isFaulty) value += _random.NextDouble * 5; // Fault Simulation
+            return value;
         }
+
+        
     }
 }
