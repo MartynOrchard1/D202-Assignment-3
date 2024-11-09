@@ -6119,11 +6119,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\tests\\tests.csproj",
-      "projectName": "tests",
-      "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\tests\\tests.csproj",
+      "projectUniqueName": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\unit-tests\\unit-tests.csproj",
+      "projectName": "unit-tests",
+      "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\unit-tests\\unit-tests.csproj",
       "packagesPath": "C:\\Users\\leroy\\.nuget\\packages\\",
-      "outputPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\tests\\obj\\",
+      "outputPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\unit-tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\leroy\\AppData\\Roaming\\NuGet\\NuGet.Config",

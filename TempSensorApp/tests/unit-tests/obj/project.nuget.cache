@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pDY2k7EXCkyuKzH6Bk5OsoyMgceofRgbx54bYMkNk45BTxkc53jodMdVmQak4Jh1/5su6KY/jOkeHKiP2ra2vQ==",
+  "dgSpecHash": "GK/pHzVQcvdOQGTq/RLRzDl8Sgydr2m0iPPmeIaIRkuhVrzgM5XM1WFx1tyCfEGjn7nYnroKFpqW/KkyA6FX8Q==",
   "success": true,
-  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\tests\\tests.csproj",
+  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\tests\\unit-tests\\unit-tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leroy\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\leroy\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
