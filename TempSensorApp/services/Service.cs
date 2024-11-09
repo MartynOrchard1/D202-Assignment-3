@@ -65,5 +65,11 @@ namespace Sensor Services
             Console.writeline(log); // Log the string to the console
             File.AppendAllText("logs/sensor_log.txt", log + Environment.NewLine); // Logs out into the logs folder.
         }
+
+        // Store Sensor Data
+        public void Store(Sensor sensor, double data)
+        {
+            
+        }
     }
 }
