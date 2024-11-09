@@ -79,7 +79,10 @@ namespace Sensor Services
         // Detect Anomalies
         public bool AnomalyDetection(Sensor sensor)
         {
-            
+            if (sensor.DataHistory.Count < 5) return false;
+            double average = sensor.DataHistory.Average();
+            double lastReading = sensor.DataHistory.Last();
+            return Math.abs(lastReading - average) > 2; // There's an anomaly if deviation is greater than 2
         }
     }
 }
