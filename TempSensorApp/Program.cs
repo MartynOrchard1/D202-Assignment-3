@@ -1,2 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Import Statements
+using TempSensorApp.services;
+using TempSensorApp.models;
+using System.Threading.tasks;
+
+namespace TempSensor 
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            var sensorService = new SensorServeice();
+            var sensor = sensorService.initSensor("Sensor 1", "Data Center", 22, 24)
+
+            console.writeline("Starting temperature sensor simulation...")
+            await sensorService.StartSensor(sensor);
+        }
+    }
+
+}
