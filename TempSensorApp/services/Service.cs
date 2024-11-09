@@ -52,6 +52,10 @@ namespace Sensor Services
             return value;
         }
 
-        
+        // Validate Sensor Data
+        public bool validateData(double data, Sensor sensor)
+        {
+            return data >=sensor.MinValue && data <= sensor.maxValue; // Validates the Sensor Data
+        }
     }
 }
