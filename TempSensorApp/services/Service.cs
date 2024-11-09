@@ -61,7 +61,7 @@ namespace Sensor Services
         // Log Sensor Data
         public void Log(double data) 
         {
-            
+            string log = $"{DateTime.Now}: {data}"; // Logs the date alongside the sensor data
         }
     }
 }
