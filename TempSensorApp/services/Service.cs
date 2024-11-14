@@ -26,20 +26,27 @@ namespace TempSensorApp.services
             while (true)
             {
                 var simulatedData = SimulateData(sensor); 
-                bool isValid = ValidateData(simulatedData, sensor);
+                // Console.WriteLine($"Generated Data: {simulatedData}"); // This outputs the Sensor Data. - !! USED FOR DEBUGGING PURPOSES !!
 
+                // Validate
+                bool isValid = ValidateData(simulatedData, sensor);
                 if (isValid)
                 {
+                    // Log The Data
                     LogData(simulatedData); 
                     StoreData(sensor, simulatedData); 
 
                     if (AnomalyDetection(sensor)) 
                     {
-                        Console.WriteLine("Anomaly detected!"); 
+                        Console.WriteLine("Anomaly detected!"); // If there's an anomaly do this
                     }
                 }
+                else 
+                {   
+                    Console.WriteLine($"Data Is Invalid {simulatedData}");
+                }
 
-                await Task.Delay(1000); // Delay Task 
+                await Task.Delay(1000); // Interval for Sensor Generation
             }
         }
 
@@ -48,8 +55,11 @@ namespace TempSensorApp.services
         {
             double noise = _random.NextDouble() * 2 - 1; // Looks for noise between -1 and 1
             double value = sensor.MinValue + noise;
-            if (sensor.IsFaulty) value += _random.NextDouble() * 5; // Fault Simulation 
-            return value;
+            if (sensor.IsFaulty) 
+            {
+                value += _random.NextDouble() * 5; // Fault Simulation 
+            }
+            return Math.Round(value, 2);
         }
 
         // Validate Sensor Data
