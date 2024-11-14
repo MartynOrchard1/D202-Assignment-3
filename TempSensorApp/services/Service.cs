@@ -55,8 +55,11 @@ namespace TempSensorApp.services
         {
             double noise = _random.NextDouble() * 2 - 1; // Looks for noise between -1 and 1
             double value = sensor.MinValue + noise;
-            if (sensor.IsFaulty) value += _random.NextDouble() * 5; // Fault Simulation 
-            return value;
+            if (sensor.IsFaulty) 
+            {
+                value += _random.NextDouble() * 5; // Fault Simulation 
+            }
+            return Math.Round(value,2);
         }
 
         // Validate Sensor Data
