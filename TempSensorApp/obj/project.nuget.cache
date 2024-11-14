@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9EIJl5QYfeyElMjuvsM8p1Axh4jLJPG1z/3WN0lpVA+7Uo2ywT8x6YWRl8jtJobSFKziP7FrHgK5qQvXC5JVBw==",
+  "dgSpecHash": "ruxSFPXe1C0=",
   "success": true,
-  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "\\\\21356032.HDrive.uict.nz\\HDrive\\21356032\\Local\\Documents\\GitHub\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\21356032\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\21356032\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\21356032\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\21356032\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
