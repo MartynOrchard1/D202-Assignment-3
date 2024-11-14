@@ -3,17 +3,12 @@
 
 ## Table Of Contents: 
 
-Project description 
-
-Features 
-
-Installation 
-
-Usage 
-
-Configuration 
-
-Testing 
+- Project description 
+- Features 
+- Installation 
+- Usage 
+- Configuration 
+- Testing 
 
 
 ## Project Description:
