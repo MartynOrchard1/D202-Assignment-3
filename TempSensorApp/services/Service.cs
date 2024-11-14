@@ -26,8 +26,10 @@ namespace TempSensorApp.services
             while (true)
             {
                 var simulatedData = SimulateData(sensor); 
-                bool isValid = ValidateData(simulatedData, sensor);
+                Console.WriteLine($"Generated Data: {simulatedData}"); // This outputs the Sensor Data.
 
+                // Validate
+                bool isValid = ValidateData(simulatedData, sensor);
                 if (isValid)
                 {
                     LogData(simulatedData); 
