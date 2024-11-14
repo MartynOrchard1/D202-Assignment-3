@@ -26,22 +26,27 @@ namespace TempSensorApp.services
             while (true)
             {
                 var simulatedData = SimulateData(sensor); 
-                Console.WriteLine($"Generated Data: {simulatedData}"); // This outputs the Sensor Data.
+                // Console.WriteLine($"Generated Data: {simulatedData}"); // This outputs the Sensor Data. - !! USED FOR DEBUGGING PURPOSES !!
 
                 // Validate
                 bool isValid = ValidateData(simulatedData, sensor);
                 if (isValid)
                 {
+                    // Log The Data
                     LogData(simulatedData); 
                     StoreData(sensor, simulatedData); 
 
                     if (AnomalyDetection(sensor)) 
                     {
-                        Console.WriteLine("Anomaly detected!"); 
+                        Console.WriteLine("Anomaly detected!"); // If there's an anomaly do this
                     }
                 }
+                else 
+                {   
+                    Console.WriteLine($"Data Is Invalid {simulatedData}");
+                }
 
-                await Task.Delay(1000); // Delay Task 
+                await Task.Delay(1000); // Interval for Sensor Generation
             }
         }
 
