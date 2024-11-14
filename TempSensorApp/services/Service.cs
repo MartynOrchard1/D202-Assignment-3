@@ -57,7 +57,7 @@ namespace TempSensorApp.services
             double value = sensor.MinValue + noise;
             if (sensor.IsFaulty) 
             {
-                value += _random.NextDouble() * 5; // Fault Simulation 
+                value += _random.NextDouble() * 5; // Simulates a Fault
             }
             return Math.Round(value, 2);
         }
