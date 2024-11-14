@@ -65,7 +65,7 @@ namespace TempSensorApp.services
         // Validate Sensor Data
         public bool ValidateData(double data, Sensor sensor)
         {
-            return data >= sensor.MinValue && data <= sensor.MaxValue; // Validates the Sensor Data 
+            return data >= sensor.MinValue && data <= sensor.MaxValue;
         }
 
         // Log Sensor Data
