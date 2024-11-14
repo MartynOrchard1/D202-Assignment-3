@@ -59,7 +59,7 @@ namespace TempSensorApp.services
             {
                 value += _random.NextDouble() * 5; // Fault Simulation 
             }
-            return Math.Round(value,2);
+            return Math.Round(value, 2);
         }
 
         // Validate Sensor Data
