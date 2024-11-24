@@ -12,4 +12,7 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\leroy\.nuget\packages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)coverlet.msbuild\6.0.2\build\coverlet.msbuild.props" Condition="Exists('$(NuGetPackageRoot)coverlet.msbuild\6.0.2\build\coverlet.msbuild.props')" />
+  </ImportGroup>
 </Project>
