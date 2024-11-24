@@ -68,5 +68,20 @@ namespace unit_testing
             var isAnomaly = _service.AnomalyDetection(sensor);
             Assert.False(isAnomaly);
         }
+
+        [Fact]
+        public void LogData_ShouldWriteToLogFile()  // Log Data From Service.cs
+        {
+            // Arrange
+            var service = new SensorService();
+            var data = 22.5;
+
+            // Act
+            service.LogData(data);
+
+            // Assert
+            var logFileContent = File.ReadAllText("logs/sensor_log.txt");
+            Assert.Contains(data.ToString(), logFileContent);
+        }
     }
 }
