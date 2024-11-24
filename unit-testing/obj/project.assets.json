@@ -945,11 +945,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\unit-testing.csproj",
+      "projectUniqueName": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\unit-testing.csproj",
       "projectName": "unit-testing",
-      "projectPath": "d:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\unit-testing.csproj",
+      "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\unit-testing.csproj",
       "packagesPath": "C:\\Users\\leroy\\.nuget\\packages\\",
-      "outputPath": "d:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\obj\\",
+      "outputPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\unit-testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\leroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -966,8 +966,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "d:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj": {
-              "projectPath": "d:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj"
+            "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj": {
+              "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj"
             }
           }
         }
