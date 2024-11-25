@@ -47,9 +47,11 @@ namespace TempSensorApp.services
                 // Check if user presses a key on their keyboard...
                 if (Console.KeyAvailable)
                 {
-                    Console.ReadKey(true);
-                    Console.WriteLine("Sensor Stopped by user");
-                    break;
+                    var key = Console.ReadKey(true).Key;
+                    if (key == ConsoleKey.P) 
+                    {
+                        
+                    }
                 }
 
                 var simulatedData = SimulateData(sensor); 
