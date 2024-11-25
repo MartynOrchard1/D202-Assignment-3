@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cqQjxWqwbNk=",
+  "dgSpecHash": "ko2X90yoJq8=",
   "success": true,
-  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\TempSensorApp.csproj",
+  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leroy\\.nuget\\packages\\coverlet.msbuild\\6.0.2\\coverlet.msbuild.6.0.2.nupkg.sha512"
   ],
