@@ -250,5 +250,23 @@ public void StoreData_ShouldAddMultipleDataPointsToHistory()
     Assert.Equal(23.5, sensor.DataHistory[1]);
 }
 
+[Fact]
+public void AnomalyDetection_ShouldReturnFalse_ForConsistentData()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = new Sensor
+    {
+        Name = "Test Sensor",
+        DataHistory = new List<double> { 22, 22, 22, 22, 22 }
+    };
+
+    // Act
+    var isAnomaly = service.AnomalyDetection(sensor);
+
+    // Assert
+    Assert.False(isAnomaly);
+}
+
     }
 }
