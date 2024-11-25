@@ -326,6 +326,26 @@ public void SimulateData_ShouldIncludeNoise()
     Assert.True(data >= sensor.MinValue - 1 && data <= sensor.MaxValue + 1); // Includes noise range
 }
 
+[Fact]
+public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = new Sensor
+    {
+        Name = "Faulty Sensor",
+        MinValue = 22,
+        MaxValue = 24,
+        IsFaulty = true
+    };
+
+    // Act
+    var data = service.SimulateData(sensor);
+
+    // Assert
+    Assert.True(data > sensor.MaxValue); // Faulty data is out of range
+}
+
 
     }
 }
