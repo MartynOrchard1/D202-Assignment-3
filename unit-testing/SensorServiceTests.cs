@@ -217,13 +217,17 @@ namespace unit_testing
         }
 
         [Fact]
-        public void ValidateData_ShouldReturnFalse_WhenDataisNaN()
+        public void ValidateData_ShouldReturnFalse_WhenDataIsNaN()
         {
             // Arrange
+            var service = new SensorService();
+            var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
 
             // Act
+            var isValid = service.ValidateData(double.NaN, sensor);
 
             // Assert
+            Assert.False(isValid);
         }
     }
 }
