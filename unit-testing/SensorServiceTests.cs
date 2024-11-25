@@ -285,5 +285,21 @@ public void AnomalyDetection_ShouldReturnTrue_ForLargePositiveDeviation()
     // Assert
     Assert.True(isAnomaly);
 }
+
+[Fact]
+public void LogData_ShouldCreateNonEmptyLogFile()
+{
+    // Arrange
+    var service = new SensorService();
+    var data = 22.5;
+
+    // Act
+    service.LogData(data);
+
+    // Assert
+    var logFileContent = File.ReadAllText("logs/sensor_log.txt");
+    Assert.NotEmpty(logFileContent);
+}
+
     }
 }
