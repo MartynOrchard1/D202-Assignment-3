@@ -113,7 +113,7 @@ namespace TempSensorApp.services
         }
 
         // Simulate Sensor Data
-        public double SimulateData(Sensor sensor)
+        public virtual double SimulateData(Sensor sensor)
         {
             double noise = _random.NextDouble() * 2 - 1; // Noise between -1 and 1
             double value = sensor.MinValue + noise;

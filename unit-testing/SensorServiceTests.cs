@@ -527,6 +527,29 @@ namespace unit_testing
             mockConsole.Verify(c => c.WriteLine("Sensor Started. Press 'P' to pause and view options."), Times.Once);
         }
 
+        [Fact]
+        public async Task StartSensor_ShouldCallSimulateData()
+        {
+            // Arrange
+            var mockConsole = new Mock<IConsoleService>();
+            var mockService = new Mock<SensorService>(mockConsole.Object) { CallBase = true }; // Enable partial mocking
+            var sensor = mockService.Object.InitSensor("Sensor 1", "Data Center", 22, 24);
+
+            mockConsole.Setup(c => c.KeyAvailable).Returns(false); // No key press initially
+            mockConsole.SetupSequence(c => c.KeyAvailable)
+                .Returns(false)  // Run the loop
+                .Returns(true);  // Exit condition
+            mockConsole.Setup(c => c.ReadKey(true))
+                .Returns(new ConsoleKeyInfo('P', ConsoleKey.P, false, false, false)); // Exit condition
+
+            // Act
+            var task = mockService.Object.StartSensor(sensor);
+            await Task.Delay(200); // Let the loop run briefly
+
+            // Assert
+            mockService.Verify(s => s.SimulateData(sensor), Times.AtLeastOnce);
+        }
+
 
     }
 }
