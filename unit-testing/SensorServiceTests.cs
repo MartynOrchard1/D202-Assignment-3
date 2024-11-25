@@ -213,7 +213,7 @@ namespace unit_testing
             var service = new SensorService();
 
             // Act & Assert
-            
+            Assert.Throws<ArgumentException>(() => service.InitSensor("TestSensor", "TestLocation", -1, 24));
         }
     }
 }
