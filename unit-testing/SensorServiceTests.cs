@@ -215,5 +215,15 @@ namespace unit_testing
             // Act & Assert
             Assert.Throws<ArgumentException>(() => service.InitSensor("TestSensor", "TestLocation", -1, 24));
         }
+
+        [Fact]
+        public void ValidateData_ShouldReturnFalse_WhenDataisNaN()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+        }
     }
 }
