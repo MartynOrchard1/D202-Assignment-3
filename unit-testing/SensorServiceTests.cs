@@ -230,139 +230,138 @@ namespace unit_testing
             Assert.False(isValid);
         }
         [Fact]
-public void StoreData_ShouldAddMultipleDataPointsToHistory()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = new Sensor
-    {
-        Name = "Test Sensor",
-        DataHistory = new List<double>()
-    };
+        public void StoreData_ShouldAddMultipleDataPointsToHistory()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double>()
+            };
 
-    // Act
-    service.StoreData(sensor, 22.5);
-    service.StoreData(sensor, 23.5);
+            // Act
+            service.StoreData(sensor, 22.5);
+            service.StoreData(sensor, 23.5);
 
-    // Assert
-    Assert.Equal(2, sensor.DataHistory.Count);
-    Assert.Equal(22.5, sensor.DataHistory[0]);
-    Assert.Equal(23.5, sensor.DataHistory[1]);
-}
+            // Assert
+            Assert.Equal(2, sensor.DataHistory.Count);
+            Assert.Equal(22.5, sensor.DataHistory[0]);
+            Assert.Equal(23.5, sensor.DataHistory[1]);
+        }
 
-[Fact]
-public void AnomalyDetection_ShouldReturnFalse_ForConsistentData()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = new Sensor
-    {
-        Name = "Test Sensor",
-        DataHistory = new List<double> { 22, 22, 22, 22, 22 }
-    };
+        [Fact]
+        public void AnomalyDetection_ShouldReturnFalse_ForConsistentData()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double> { 22, 22, 22, 22, 22 }
+            };
 
-    // Act
-    var isAnomaly = service.AnomalyDetection(sensor);
+            // Act
+            var isAnomaly = service.AnomalyDetection(sensor);
 
-    // Assert
-    Assert.False(isAnomaly);
-}
+            // Assert
+            Assert.False(isAnomaly);
+        }
 
-[Fact]
-public void AnomalyDetection_ShouldReturnTrue_ForLargePositiveDeviation()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = new Sensor
-    {
-        Name = "Test Sensor",
-        DataHistory = new List<double> { 22, 22, 22, 22, 29 }
-    };
+        [Fact]
+        public void AnomalyDetection_ShouldReturnTrue_ForLargePositiveDeviation()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double> { 22, 22, 22, 22, 29 }
+            };
 
-    // Act
-    var isAnomaly = service.AnomalyDetection(sensor);
+            // Act
+            var isAnomaly = service.AnomalyDetection(sensor);
 
-    // Assert
-    Assert.True(isAnomaly);
-}
+            // Assert
+            Assert.True(isAnomaly);
+        }
 
-[Fact]
-public void LogData_ShouldCreateNonEmptyLogFile()
-{
-    // Arrange
-    var service = new SensorService();
-    var data = 22.5;
+        [Fact]
+        public void LogData_ShouldCreateNonEmptyLogFile()
+        {
+            // Arrange
+            var service = new SensorService();
+            var data = 22.5;
 
-    // Act
-    service.LogData(data);
+            // Act
+            service.LogData(data);
 
-    // Assert
-    var logFileContent = File.ReadAllText("logs/sensor_log.txt");
-    Assert.NotEmpty(logFileContent);
-}
+            // Assert
+            var logFileContent = File.ReadAllText("logs/sensor_log.txt");
+            Assert.NotEmpty(logFileContent);
+        }
 
-[Fact]
-public void InitializeAndStartSensor_ShouldThrowException_ForNullSensor()
-{
-    // Arrange
-    var helper = new ProgramHelper();
-    SensorService service = null;
+        [Fact]
+        public void InitializeAndStartSensor_ShouldThrowException_ForNullSensor()
+        {
+            // Arrange
+            var helper = new ProgramHelper();
+            SensorService service = null;
 
-    // Act & Assert
-    Assert.Throws<NullReferenceException>(() => helper.InitializeAndStartSensor(service));
-}
+            // Act & Assert
+            Assert.Throws<NullReferenceException>(() => helper.InitializeAndStartSensor(service));
+        }
 
-[Fact]
-public void SimulateData_ShouldIncludeNoise()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
+        [Fact]
+        public void SimulateData_ShouldIncludeNoise()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
 
-    // Act
-    var data = service.SimulateData(sensor);
+            // Act
+            var data = service.SimulateData(sensor);
 
-    // Assert
-    Assert.True(data >= sensor.MinValue - 1 && data <= sensor.MaxValue + 1); // Includes noise range
-}
+            // Assert
+            Assert.True(data >= sensor.MinValue - 1 && data <= sensor.MaxValue + 1); // Includes noise range
+        }
 
-[Fact]
-public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = new Sensor
-    {
-        Name = "Faulty Sensor",
-        MinValue = 22,
-        MaxValue = 24,
-        IsFaulty = true
-    };
+        [Fact]
+        public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Faulty Sensor",
+                MinValue = 22,
+                MaxValue = 24,
+                IsFaulty = true
+            };
 
-    // Act
-    var data = service.SimulateData(sensor);
+            // Act
+            var data = service.SimulateData(sensor);
 
-    // Assert
-    Assert.True(data > sensor.MaxValue); // Faulty data is out of range
-}
+            // Assert
+            Assert.True(data > sensor.MaxValue); // Faulty data is out of range
+        }
 
-[Fact]
-public void AnomalyDetection_ShouldReturnFalse_ForLessThanFiveDataPoints()
-{
-    // Arrange
-    var service = new SensorService();
-    var sensor = new Sensor
-    {
-        Name = "Test Sensor",
-        DataHistory = new List<double> { 22, 23 }
-    };
+        [Fact]
+        public void AnomalyDetection_ShouldReturnFalse_ForLessThanFiveDataPoints()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double> { 22, 23 }
+            };
 
-    // Act
-    var isAnomaly = service.AnomalyDetection(sensor);
+            // Act
+            var isAnomaly = service.AnomalyDetection(sensor);
 
-    // Assert
-    Assert.False(isAnomaly);
-}
-
+            // Assert
+            Assert.False(isAnomaly);
+        }
     }
 }
