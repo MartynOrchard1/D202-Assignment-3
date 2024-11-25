@@ -16,7 +16,13 @@ namespace unit_testing
         [Fact]
         public void InitSensor_ShouldReturnSensor_WithCorrectValues()
         {
+            // Arrange
+            var service = new SensorService();
+
+            // Act
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
+
+            // Assert
             Assert.Equal("TestSensor", sensor.Name);
             Assert.Equal("TestLocation", sensor.Location);
             Assert.Equal(22, sensor.MinValue);
@@ -172,6 +178,6 @@ namespace unit_testing
             Assert.False(isAnomaly);
         }
 
-        
+
     }
 }
