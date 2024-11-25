@@ -50,7 +50,13 @@ namespace TempSensorApp.services
                     var key = Console.ReadKey(true).Key;
                     if (key == ConsoleKey.P) 
                     {
-                        
+                        // Pause and Display user Options
+                        Console.WriteLine("\n--- MENU ---");
+                        Console.WriteLine("1. Continue");
+                        Console.WriteLine("2. Exit");
+                        Console.WriteLine("Enter your choice: ");
+
+
                     }
                 }
 
