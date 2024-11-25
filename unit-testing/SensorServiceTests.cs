@@ -301,5 +301,17 @@ public void LogData_ShouldCreateNonEmptyLogFile()
     Assert.NotEmpty(logFileContent);
 }
 
+[Fact]
+public void InitializeAndStartSensor_ShouldThrowException_ForNullSensor()
+{
+    // Arrange
+    var helper = new ProgramHelper();
+    SensorService service = null;
+
+    // Act & Assert
+    Assert.Throws<NullReferenceException>(() => helper.InitializeAndStartSensor(service));
+}
+
+
     }
 }
