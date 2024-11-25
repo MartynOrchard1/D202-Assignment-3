@@ -20,7 +20,7 @@ namespace unit_testing
             var service = new SensorService();
 
             // Act
-            var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
+            var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
 
             // Assert
             Assert.Equal("TestSensor", sensor.Name);
@@ -34,6 +34,19 @@ namespace unit_testing
         {
             // Arrange
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
+
+            // Act
+            var data = _service.SimulateData(sensor);
+
+            // Assert
+            Assert.InRange(data, sensor.MinValue - 1, sensor.MaxValue + 1); // Account for noise
+        }
+
+        [Fact]
+        public void ValidateData_ShouldReturnTrue_WhenDataIsWithinRange()
+        {
+            // Arrange
+            var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
             var validData = 23;
 
             // Act
@@ -44,40 +57,46 @@ namespace unit_testing
         }
 
         [Fact]
-        public void ValidateData_ShouldReturnTrue_WhenDataIsWithinRange()
-        {
-            var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
-            var validData = 23;
-            var isValid = _service.ValidateData(validData, sensor);
-            Assert.True(isValid);
-        }
-
-        [Fact]
         public void ValidateData_ShouldReturnFalse_WhenDataIsOutOfRange()
         {
+            // Arrange
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
             var invalidData = 25;
+
+            // Act
             var isValid = _service.ValidateData(invalidData, sensor);
+
+            // Assert
             Assert.False(isValid);
         }
 
         [Fact]
         public void AnomalyDetection_ShouldReturnTrue_WhenDataIsOutOfAverageRange()
         {
+            // Arrange
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
             sensor.DataHistory.AddRange(new double[] { 22, 22, 23, 23, 22 });
             var anomalyData = 28;
+
+            // Act
             sensor.DataHistory.Add(anomalyData);
             var isAnomaly = _service.AnomalyDetection(sensor);
+
+            // Assert
             Assert.True(isAnomaly);
         }
 
         [Fact]
         public void AnomalyDetection_ShouldReturnFalse_WhenDataIsWithinAverageRange()
         {
+            // Arrange
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
             sensor.DataHistory.AddRange(new double[] { 22, 23, 23, 22, 22 });
+
+            // Act
             var isAnomaly = _service.AnomalyDetection(sensor);
+
+            // Assert
             Assert.False(isAnomaly);
         }
 
@@ -96,13 +115,17 @@ namespace unit_testing
             Assert.Contains(data.ToString(), logFileContent);
         }
 
-
         public class ProgramHelper
         {
             public Sensor InitializeAndStartSensor(SensorService service)
             {
+                // Arrange
                 var sensor = service.InitSensor("Sensor 1", "Data Center", 22, 24);
+
+                // Act
                 Console.WriteLine("Starting temperature sensor simulation...");
+
+                // Assert
                 return sensor;
             }
         }
@@ -183,7 +206,5 @@ namespace unit_testing
             // Assert
             Assert.False(isAnomaly);
         }
-
-
     }
 }
