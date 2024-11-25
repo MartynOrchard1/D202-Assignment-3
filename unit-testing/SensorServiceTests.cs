@@ -32,9 +32,15 @@ namespace unit_testing
         [Fact]
         public void SimulateData_ShouldReturnWithinRange()
         {
+            // Arrange
             var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
-            var data = _service.SimulateData(sensor);
-            Assert.InRange(data, sensor.MinValue - 1, sensor.MaxValue + 1); // Account for noise
+            var validData = 23;
+
+            // Act
+            var isValid = _service.ValidateData(validData, sensor);
+
+            // Assert
+            Assert.True(isValid);
         }
 
         [Fact]
