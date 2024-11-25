@@ -37,6 +37,41 @@ namespace TempSensorApp.services
             }; 
         }
 
+        // Handle Users Input
+        public bool HandleUserInput()
+        {
+            if (Console.KeyAvailable)
+            {
+                var key = Console.ReadKey(true).Key;
+                if (key == ConsoleKey.P)
+                {
+                    Console.WriteLine("\n--- MENU ---");
+                    Console.WriteLine("1. Continue");
+                    Console.WriteLine("2. Exit");
+                    Console.WriteLine("Enter your choice: ");
+
+                    var choice = Console.ReadKey(true).Key;
+                    if (choice == ConsoleKey.D1 || choice == ConsoleKey.NumPad1)
+                    {
+                        Console.WriteLine("\nResuming Sensor Generation");
+                        return false; // Continue
+                    }
+                    else if (choice == ConsoleKey.D2 || choice == ConsoleKey.NumPad2)
+                    {
+                        Console.WriteLine("\nExiting Application...");
+                        return true; // Exit
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nInvalid Choice. Resuming sensor generation...");
+                        return false; // Continue
+                    }
+                }
+            }
+            return false;
+        }
+
+
         // Start the Sensor
         public async Task StartSensor(Sensor sensor)
         {
@@ -44,36 +79,6 @@ namespace TempSensorApp.services
 
             while (true)
             {
-                // Check if user presses a key on their keyboard...
-                if (Console.KeyAvailable)
-                {
-                    var key = Console.ReadKey(true).Key;
-                    if (key == ConsoleKey.P) 
-                    {
-                        // Pause and Display user Options
-                        Console.WriteLine("\n--- MENU ---");
-                        Console.WriteLine("1. Continue");
-                        Console.WriteLine("2. Exit");
-                        Console.WriteLine("Enter your choice: ");
-
-                        var choice = Console.ReadKey(true).Key;
-                        if (choice == ConsoleKey.D1 || choice == ConsoleKey.NumPad1)
-                        {
-                            Console.WriteLine("\nResuming Sensor Generation");
-                            continue;
-                        }
-                        else if (choice == ConsoleKey.D2 || choice == ConsoleKey.NumPad2) 
-                        {
-                            Console.WriteLine("\nExiting Application...");
-                            break;
-                        }
-                        else {
-                            Console.WriteLine("\nInvalid Choice. Resuming sensor generation...");
-                            continue;
-                        }
-                    }
-                }
-
                 var simulatedData = SimulateData(sensor); 
 
                 // Validate
