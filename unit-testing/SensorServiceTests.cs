@@ -326,7 +326,7 @@ namespace unit_testing
             Assert.True(data >= sensor.MinValue - 1 && data <= sensor.MaxValue + 1); // Includes noise range
         }
 
-        [Fact]
+       [Fact]
         public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
         {
             // Arrange
@@ -343,9 +343,9 @@ namespace unit_testing
             var data = service.SimulateData(sensor);
 
             // Assert
-            Assert.True(data > sensor.MaxValue); // Faulty data is out of range
+            Assert.True(data > sensor.MaxValue || data < sensor.MinValue, "Expected data to be out of range for a faulty sensor.");
         }
-
+        
         [Fact]
         public void AnomalyDetection_ShouldReturnFalse_ForLessThanFiveDataPoints()
         {
