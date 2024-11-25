@@ -229,5 +229,26 @@ namespace unit_testing
             // Assert
             Assert.False(isValid);
         }
+        [Fact]
+public void StoreData_ShouldAddMultipleDataPointsToHistory()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = new Sensor
+    {
+        Name = "Test Sensor",
+        DataHistory = new List<double>()
+    };
+
+    // Act
+    service.StoreData(sensor, 22.5);
+    service.StoreData(sensor, 23.5);
+
+    // Assert
+    Assert.Equal(2, sensor.DataHistory.Count);
+    Assert.Equal(22.5, sensor.DataHistory[0]);
+    Assert.Equal(23.5, sensor.DataHistory[1]);
+}
+
     }
 }
