@@ -40,6 +40,8 @@ namespace TempSensorApp.services
         // Start the Sensor
         public async Task StartSensor(Sensor sensor)
         {
+            Console.WriteLine("Press any key to stop the sensor...");
+            
             while (true)
             {
                 var simulatedData = SimulateData(sensor); 
