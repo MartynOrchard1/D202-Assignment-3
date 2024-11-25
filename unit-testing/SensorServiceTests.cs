@@ -1,23 +1,120 @@
 using Xunit;
-using TempSensorApp.services; 
-using TempSensorModels;      
+using Moq;
+using TempSensorApp.services;
+using TempSensorModels;
+using System;
+using System.IO;
+using System.Collections.Generic;
 
-namespace unit_testing         
+namespace unit_testing
 {
     public class SensorServiceTests
     {
+        private readonly Mock<IConsoleService> _mockConsole;
         private readonly SensorService _service;
 
         public SensorServiceTests()
         {
-            _service = new SensorService();
+            _mockConsole = new Mock<IConsoleService>();
+            _service = new SensorService(_mockConsole.Object);
+        }
+
+        [Fact]
+        public void HandleUserInput_NoKeyAvailable_ReturnsFalse()
+        {
+            // Arrange
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(false);
+
+            // Act
+            var result = _service.HandleUserInput();
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void HandleUserInput_KeyNotP_ReturnsFalse()
+        {
+            // Arrange
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(true);
+            _mockConsole.Setup(c => c.ReadKey(true)).Returns(new ConsoleKeyInfo('A', ConsoleKey.A, false, false, false));
+
+            // Act
+            var result = _service.HandleUserInput();
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void HandleUserInput_KeyP_Choice1_ReturnsFalse()
+        {
+            // Arrange
+            _mockConsole.SetupSequence(c => c.ReadKey(true))
+                .Returns(new ConsoleKeyInfo('P', ConsoleKey.P, false, false, false)) // Key `P`
+                .Returns(new ConsoleKeyInfo('1', ConsoleKey.D1, false, false, false)); // Choice `1`
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(true);
+
+            // Act
+            var result = _service.HandleUserInput();
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void HandleUserInput_KeyP_Choice2_ReturnsTrue()
+        {
+            // Arrange
+            _mockConsole.SetupSequence(c => c.ReadKey(true))
+                .Returns(new ConsoleKeyInfo('P', ConsoleKey.P, false, false, false)) // Key `P`
+                .Returns(new ConsoleKeyInfo('2', ConsoleKey.D2, false, false, false)); // Choice `2`
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(true);
+
+            // Act
+            var result = _service.HandleUserInput();
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void HandleUserInput_KeyP_InvalidChoice_ReturnsFalse()
+        {
+            // Arrange
+            _mockConsole.SetupSequence(c => c.ReadKey(true))
+                .Returns(new ConsoleKeyInfo('P', ConsoleKey.P, false, false, false)) // Key `P`
+                .Returns(new ConsoleKeyInfo('X', ConsoleKey.X, false, false, false)); // Invalid choice
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(true);
+
+            // Act
+            var result = _service.HandleUserInput();
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void HandleUserInput_LogsMenu_WhenKeyPIsPressed()
+        {
+            // Arrange
+            _mockConsole.Setup(c => c.KeyAvailable).Returns(true);
+            _mockConsole.Setup(c => c.ReadKey(true)).Returns(new ConsoleKeyInfo('P', ConsoleKey.P, false, false, false));
+
+            // Act
+            _service.HandleUserInput();
+
+            // Assert
+            _mockConsole.Verify(c => c.WriteLine(It.Is<string>(s => s.Contains("MENU"))), Times.Once);
         }
 
         [Fact]
         public void InitSensor_ShouldReturnSensor_WithCorrectValues()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+var service = new SensorService(mockConsole.Object);
+
 
             // Act
             var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
@@ -104,7 +201,9 @@ namespace unit_testing
         public void LogData_ShouldWriteToLogFile()  // Log Data From Service.cs
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var data = 22.5;
 
             // Act
@@ -134,7 +233,9 @@ namespace unit_testing
         public void InitializeAndStartSensor_ShouldReturnValidSensor()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var helper = new ProgramHelper();
 
             // Act
@@ -150,7 +251,9 @@ namespace unit_testing
         public void StoreData_ShouldAddDataToHistory()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
@@ -169,7 +272,9 @@ namespace unit_testing
         public void AnomalyDetection_ShouldReturnTrue_ForSignificantDeviation()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
@@ -187,7 +292,9 @@ namespace unit_testing
         public void InitSensor_ShouldThrowException_ForInvalidRange()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => service.InitSensor("Sensor 1", "Lab", 25, 22));
@@ -197,7 +304,9 @@ namespace unit_testing
         public void AnomalyDetection_ShouldReturnFalse_ForEmptyHistory()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor { DataHistory = new List<double>() };
 
             // Act
@@ -210,7 +319,9 @@ namespace unit_testing
         public void InitSensor_ShouldThrowException_WhenMinValueIsNegative() 
         {
             //Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+var service = new SensorService(mockConsole.Object);
+
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => service.InitSensor("TestSensor", "TestLocation", -1, 24));
@@ -220,7 +331,9 @@ namespace unit_testing
         public void ValidateData_ShouldReturnFalse_WhenDataIsNaN()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
 
             // Act
@@ -233,7 +346,9 @@ namespace unit_testing
         public void StoreData_ShouldAddMultipleDataPointsToHistory()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
@@ -254,7 +369,9 @@ namespace unit_testing
         public void AnomalyDetection_ShouldReturnFalse_ForConsistentData()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
@@ -272,7 +389,9 @@ namespace unit_testing
         public void AnomalyDetection_ShouldReturnTrue_ForLargePositiveDeviation()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
@@ -290,7 +409,9 @@ namespace unit_testing
         public void LogData_ShouldCreateNonEmptyLogFile()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+var service = new SensorService(mockConsole.Object);
+
             var data = 22.5;
 
             // Act
@@ -316,7 +437,9 @@ namespace unit_testing
         public void SimulateData_ShouldIncludeNoise()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
 
             // Act
@@ -330,7 +453,9 @@ namespace unit_testing
         public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Faulty Sensor",
@@ -350,7 +475,9 @@ namespace unit_testing
         public void AnomalyDetection_ShouldReturnFalse_ForLessThanFiveDataPoints()
         {
             // Arrange
-            var service = new SensorService();
+            var mockConsole = new Mock<IConsoleService>();
+            var service = new SensorService(mockConsole.Object);
+
             var sensor = new Sensor
             {
                 Name = "Test Sensor",
