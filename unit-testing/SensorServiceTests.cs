@@ -312,6 +312,20 @@ public void InitializeAndStartSensor_ShouldThrowException_ForNullSensor()
     Assert.Throws<NullReferenceException>(() => helper.InitializeAndStartSensor(service));
 }
 
+[Fact]
+public void SimulateData_ShouldIncludeNoise()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = service.InitSensor("TestSensor", "TestLocation", 22, 24);
+
+    // Act
+    var data = service.SimulateData(sensor);
+
+    // Assert
+    Assert.True(data >= sensor.MinValue - 1 && data <= sensor.MaxValue + 1); // Includes noise range
+}
+
 
     }
 }
