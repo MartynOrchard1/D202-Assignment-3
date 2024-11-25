@@ -570,5 +570,25 @@ namespace unit_testing
             Assert.Equal(22.5, sensor.DataHistory[0]); // Ensure the correct data is added
         }
 
+        [Fact]
+        public void StoreData_ShouldLimitDataHistoryTo100Entries()
+        {
+            // Arrange
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = Enumerable.Range(1, 100).Select(x => (double)x).ToList() // Pre-fill 100 items
+            };
+
+            var service = new SensorService(Mock.Of<IConsoleService>());
+
+            // Act
+            service.StoreData(sensor, 101.0); // Add a new data point
+
+            // Assert
+            Assert.Equal(100, sensor.DataHistory.Count); // Ensure the list size remains 100
+            Assert.DoesNotContain(1.0, sensor.DataHistory); // Ensure the oldest item is removed
+            Assert.Equal(101.0, sensor.DataHistory.Last()); // Ensure the new data is added
+        }
     }
 }
