@@ -40,7 +40,7 @@ namespace TempSensorApp.services
         // Start the Sensor
         public async Task StartSensor(Sensor sensor)
         {
-            Console.WriteLine("Press any key to stop the sensor...");
+            Console.WriteLine("Sensor Started press 'P' to pause and view options");
 
             while (true)
             {
