@@ -113,7 +113,7 @@ namespace unit_testing
         {
             // Arrange
             var mockConsole = new Mock<IConsoleService>();
-var service = new SensorService(mockConsole.Object);
+            var service = new SensorService(mockConsole.Object);
 
 
             // Act
@@ -320,7 +320,7 @@ var service = new SensorService(mockConsole.Object);
         {
             //Arrange
             var mockConsole = new Mock<IConsoleService>();
-var service = new SensorService(mockConsole.Object);
+            var service = new SensorService(mockConsole.Object);
 
 
             // Act & Assert
@@ -410,7 +410,7 @@ var service = new SensorService(mockConsole.Object);
         {
             // Arrange
             var mockConsole = new Mock<IConsoleService>();
-var service = new SensorService(mockConsole.Object);
+            var service = new SensorService(mockConsole.Object);
 
             var data = 22.5;
 
