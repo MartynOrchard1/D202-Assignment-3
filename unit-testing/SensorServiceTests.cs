@@ -268,5 +268,22 @@ public void AnomalyDetection_ShouldReturnFalse_ForConsistentData()
     Assert.False(isAnomaly);
 }
 
+[Fact]
+public void AnomalyDetection_ShouldReturnTrue_ForLargePositiveDeviation()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = new Sensor
+    {
+        Name = "Test Sensor",
+        DataHistory = new List<double> { 22, 22, 22, 22, 29 }
+    };
+
+    // Act
+    var isAnomaly = service.AnomalyDetection(sensor);
+
+    // Assert
+    Assert.True(isAnomaly);
+}
     }
 }
