@@ -79,6 +79,11 @@ namespace TempSensorApp.services
 
             while (true)
             {
+                if (HandleUserInput()) 
+                {
+                    break; // Exit's the loop based on users input
+                }
+                
                 var simulatedData = SimulateData(sensor); 
 
                 // Validate
