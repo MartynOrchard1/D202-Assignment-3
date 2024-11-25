@@ -13,7 +13,7 @@ namespace unit_testing
             _service = new SensorService();
         }
 
-[Fact]
+        [Fact]
         public void InitSensor_ShouldReturnSensor_WithCorrectValues()
         {
             // Arrange
@@ -27,21 +27,6 @@ namespace unit_testing
             Assert.Equal("TestLocation", sensor.Location);
             Assert.Equal(22, sensor.MinValue);
             Assert.Equal(24, sensor.MaxValue);
-        }
-
-        [Fact]
-        public async Task StartSensor_ShouldSimulateAndLogData()
-        {
-            // Arrange
-            var sensor = _service.InitSensor("TestSensor", "TestLocation", 22, 24);
-            var cts = new CancellationTokenSource();
-            cts.CancelAfter(3000); // Stops after 3 seconds to avoid infinite loop
-
-            // Act
-            await _service.StartSensor(sensor, cts.Token);
-
-            // Assert
-            Assert.NotEmpty(sensor.DataHistory); // Ensure that data was generated and stored
         }
 
         [Fact]

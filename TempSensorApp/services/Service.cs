@@ -38,11 +38,11 @@ namespace TempSensorApp.services
         }
 
         // Start the Sensor
-        public async Task StartSensor(Sensor sensor, CancellationToken cancellationToken)
+        public async Task StartSensor(Sensor sensor)
         {
             Console.WriteLine("Sensor Started press 'P' to pause and view options");
 
-            while (!cancellationToken.IsCancellationRequested)
+            while (true)
             {
                 // Check if user presses a key on their keyboard...
                 if (Console.KeyAvailable)
