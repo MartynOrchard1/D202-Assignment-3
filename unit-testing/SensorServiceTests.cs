@@ -230,6 +230,22 @@ namespace unit_testing
         }
 
         [Fact]
+        public void WriteLine_ShouldOutputMessageToConsole()
+        {
+            // Arrange
+            var consoleService = new ConsoleService();
+            var output = new StringWriter();
+            Console.SetOut(output);
+            var message = "Test message";
+
+            // Act
+            consoleService.WriteLine(message);
+
+            // Assert
+            Assert.Contains(message, output.ToString());
+        }
+
+        [Fact]
         public void InitializeAndStartSensor_ShouldReturnValidSensor()
         {
             // Arrange
