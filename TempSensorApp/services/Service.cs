@@ -43,7 +43,6 @@ namespace TempSensorApp.services
             while (true)
             {
                 var simulatedData = SimulateData(sensor); 
-                // Console.WriteLine($"Generated Data: {simulatedData}"); // This outputs the Sensor Data. - !! USED FOR DEBUGGING PURPOSES !!
 
                 // Validate
                 bool isValid = ValidateData(simulatedData, sensor);
