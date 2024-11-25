@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.6409999999999999" branch-rate="0.9166" version="1.9" timestamp="1732507726" lines-covered="50" lines-valid="78" branches-covered="11" branches-valid="12">
+<coverage line-rate="0.6409999999999999" branch-rate="0.9166" version="1.9" timestamp="1732570748" lines-covered="50" lines-valid="78" branches-covered="11" branches-valid="12">
   <sources>
     <source>D:\development\Web-Assignment03\D202-Assignment-3\TempSensorApp\</source>
   </sources>
@@ -266,7 +266,7 @@
             </method>
             <method name="get_MinValue" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="20" branch="False" />
+                <line number="12" hits="19" branch="False" />
               </lines>
             </method>
             <method name="get_MaxValue" signature="()" line-rate="1" branch-rate="1" complexity="1">
@@ -288,7 +288,7 @@
           <lines>
             <line number="10" hits="18" branch="False" />
             <line number="11" hits="11" branch="False" />
-            <line number="12" hits="20" branch="False" />
+            <line number="12" hits="19" branch="False" />
             <line number="13" hits="16" branch="False" />
             <line number="14" hits="55" branch="False" />
             <line number="15" hits="4" branch="False" />
