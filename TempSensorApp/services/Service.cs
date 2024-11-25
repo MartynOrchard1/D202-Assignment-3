@@ -21,8 +21,15 @@ namespace TempSensorApp.services
             {
                 throw new ArgumentException("MinValue must be less than Maxvalue");
             }
-            
-            return new Sensor { Name = name, Location = location, MinValue = minValue, MaxValue = maxValue, }; 
+
+            return new Sensor 
+            { 
+                Name = name, 
+                Location = location, 
+                MinValue = minValue, 
+                MaxValue = maxValue, 
+
+            }; 
         }
 
         // Start the Sensor
