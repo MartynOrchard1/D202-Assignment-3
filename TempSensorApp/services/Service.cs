@@ -41,9 +41,17 @@ namespace TempSensorApp.services
         public async Task StartSensor(Sensor sensor)
         {
             Console.WriteLine("Press any key to stop the sensor...");
-            
+
             while (true)
             {
+                // Check if user presses a key on their keyboard...
+                if (Console.KeyAvailable)
+                {
+                    Console.ReadKey(true);
+                    Console.WriteLine("Sensor Stopped by user");
+                    break;
+                }
+
                 var simulatedData = SimulateData(sensor); 
 
                 // Validate

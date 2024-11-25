@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj": {}
+    "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\TempSensorApp.csproj": {}
   },
   "projects": {
-    "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj": {
+    "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\TempSensorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
+        "projectUniqueName": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\TempSensorApp.csproj",
         "projectName": "TempSensorApp",
-        "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
+        "projectPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\TempSensorApp.csproj",
         "packagesPath": "C:\\Users\\leroy\\.nuget\\packages\\",
-        "outputPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\obj\\",
+        "outputPath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorAPp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\leroy\\AppData\\Roaming\\NuGet\\NuGet.Config",
