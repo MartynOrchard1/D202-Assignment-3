@@ -31,10 +31,30 @@ This project implements a .NET Core Application that simulates and processes tem
   - Analyze code coverage using Coverage Gutters
 
 ## Installation:
-
+### Prerequisites:
+- .NET CORE SDK 7.0 or HIGHER
+  - Download link here: [https://dotnet.microsoft.com/en-us/download](url)
+ 
+**2 Options for downloading/cloaning the code:**
+1. Download the Github repository as a zip and extract it onto your computer and complete the following steps [https://github.com/MartynOrchard1/D202-Assignment-3/tree/main](url)
+- ![image](https://github.com/user-attachments/assets/3e2f02ba-407d-4647-9503-8ea2357182d7)
+  - Click on code and click the bottom option 'Download ZIP'
+- ![image](https://github.com/user-attachments/assets/c334ce5d-be58-454d-b216-2ff937343f64)
+  - Click 'Extract Here' Or extract to where ever you would like to store on your computer
+- Open the folder in Visual Studio Code
+2. Clone the repository by doing the following
+- git clone `https://github.com/MartynOrchard1/D202-Assignment-3.git`
+- `cd D202-Assignment-3`
+- Move on to Usage
 
 ## Usage:
-
+- Once the project is open in visual studio code run the following commands in the terminal:
+  - `cd TempSensorApp`
+  - `dotnet restore`
+  - `dotnet build`
+- To run the application you would run the following command:
+  - `dotnet run`
+- You should see some output in the terminal
 
 ## Configuration:
 
