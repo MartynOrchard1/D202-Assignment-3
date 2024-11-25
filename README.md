@@ -62,6 +62,15 @@ This project implements a .NET Core Application that simulates and processes tem
   - ![image](https://github.com/user-attachments/assets/4f92d3d9-4604-4f87-a6d6-215b6ea32f1a)
 
 ## Configuration:
-
+To configure the application you want to do the following steps:
+1. Open the Project folder in Visual Studio Code
+2. On the left hand side navigate to the 'config' folder 
+<br />![image](https://github.com/user-attachments/assets/5da75137-77a4-4dd9-9fc8-fbcb62cfebf7)
+3. Open appsettings.json
+4. Once open you should see something like this: 
+<br />![image](https://github.com/user-attachments/assets/72e97a6a-920a-435d-a96d-f04e18f71375)
+5. For example: If you would like to edit the minimum value allowed of the sensor you would simply edit the "MinValue" setting to whatever you want it to be. 
+<br />![image](https://github.com/user-attachments/assets/48ddc044-7ff0-4ca2-a74f-ecf702b4b06d)
+6. If you wish to edit the Log File Path/file name etc make sure that the location of the folder doesn't change. It must **ALWAYS** be located within the root directory of the app `(/TempSensorApp)`
 
 ## Testing:
