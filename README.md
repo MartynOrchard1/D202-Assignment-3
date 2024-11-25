@@ -54,7 +54,12 @@ This project implements a .NET Core Application that simulates and processes tem
   - `dotnet build`
 - To run the application you would run the following command:
   - `dotnet run`
-- You should see some output in the terminal
+- You should see some output in the terminal such as the following:
+  - ![image](https://github.com/user-attachments/assets/da100136-df4d-43e0-8792-03a1c6d6a55b)
+  - As mentioned above you can monitor anomalies the sensor data is flagged and logged to the console.
+    - Anomalies are not added to the sensor log.txt file!
+- Data is then logged out to the Log file in the logs folder as can be seen here:
+  - ![image](https://github.com/user-attachments/assets/4f92d3d9-4604-4f87-a6d6-215b6ea32f1a)
 
 ## Configuration:
 
