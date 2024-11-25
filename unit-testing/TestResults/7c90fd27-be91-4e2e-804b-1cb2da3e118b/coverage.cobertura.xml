@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.6781999999999999" branch-rate="0.7666" version="1.9" timestamp="1732577398" lines-covered="78" lines-valid="115" branches-covered="23" branches-valid="30">
+<coverage line-rate="0.6869" branch-rate="0.7666" version="1.9" timestamp="1732577579" lines-covered="79" lines-valid="115" branches-covered="23" branches-valid="30">
   <sources>
     <source>D:\development\Web-Assignment03\D202-Assignment-3\TempSensorApp\</source>
   </sources>
   <packages>
-    <package name="TempSensorApp" line-rate="0.6781999999999999" branch-rate="0.7666" complexity="42">
+    <package name="TempSensorApp" line-rate="0.6869" branch-rate="0.7666" complexity="42">
       <classes>
         <class name="TempSensorApp.Program/&lt;Main&gt;d__0" filename="Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -30,7 +30,7 @@
             <line number="24" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="TempSensorApp.services.ConsoleService" filename="services\ConsoleService.cs" line-rate="0" branch-rate="1" complexity="3">
+        <class name="TempSensorApp.services.ConsoleService" filename="services\ConsoleService.cs" line-rate="0.3333" branch-rate="1" complexity="3">
           <methods>
             <method name="get_KeyAvailable" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -42,16 +42,16 @@
                 <line number="7" hits="0" branch="False" />
               </lines>
             </method>
-            <method name="WriteLine" signature="(System.String)" line-rate="0" branch-rate="1" complexity="1">
+            <method name="WriteLine" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="9" hits="0" branch="False" />
+                <line number="9" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
             <line number="5" hits="0" branch="False" />
             <line number="7" hits="0" branch="False" />
-            <line number="9" hits="0" branch="False" />
+            <line number="9" hits="1" branch="False" />
           </lines>
         </class>
         <class name="TempSensorApp.services.SensorService" filename="services\Service.cs" line-rate="0.96" branch-rate="0.9582999999999999" complexity="26">
@@ -198,11 +198,11 @@
             </method>
             <method name=".ctor" signature="(TempSensorApp.services.IConsoleService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="14" hits="44" branch="False" />
-                <line number="17" hits="44" branch="False" />
-                <line number="18" hits="44" branch="False" />
-                <line number="19" hits="44" branch="False" />
-                <line number="20" hits="44" branch="False" />
+                <line number="14" hits="45" branch="False" />
+                <line number="17" hits="45" branch="False" />
+                <line number="18" hits="45" branch="False" />
+                <line number="19" hits="45" branch="False" />
+                <line number="20" hits="45" branch="False" />
               </lines>
             </method>
           </methods>
@@ -319,11 +319,11 @@
             <line number="158" hits="5" branch="False" />
             <line number="159" hits="5" branch="False" />
             <line number="160" hits="7" branch="False" />
-            <line number="14" hits="44" branch="False" />
-            <line number="17" hits="44" branch="False" />
-            <line number="18" hits="44" branch="False" />
-            <line number="19" hits="44" branch="False" />
-            <line number="20" hits="44" branch="False" />
+            <line number="14" hits="45" branch="False" />
+            <line number="17" hits="45" branch="False" />
+            <line number="18" hits="45" branch="False" />
+            <line number="19" hits="45" branch="False" />
+            <line number="20" hits="45" branch="False" />
           </lines>
         </class>
         <class name="TempSensorApp.services.SensorService/&lt;StartSensor&gt;d__5" filename="services\Service.cs" line-rate="0" branch-rate="0" complexity="6">
