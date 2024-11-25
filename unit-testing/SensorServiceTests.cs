@@ -4,6 +4,13 @@ using TempSensorModels;
 
 namespace unit_testing         
 {
+
+    public interface Iconsole
+    {
+        bool KeyAvailable {get;}
+        ConsoleKeyInfo ReadKey(bool intercept);
+        void WriteLine(string message);
+    }
     public class SensorServiceTests
     {
         private readonly SensorService _service;
