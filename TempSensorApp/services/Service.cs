@@ -56,6 +56,12 @@ namespace TempSensorApp.services
                         Console.WriteLine("2. Exit");
                         Console.WriteLine("Enter your choice: ");
 
+                        var choice = Console.ReadKey(true).Key;
+                        if (choice == ConsoleKey.D1 || choice == ConsoleKey.NumPad1)
+                        {
+                            Console.WriteLine("\nResuming Sensor Generation");
+                            continue;
+                        }
 
                     }
                 }
