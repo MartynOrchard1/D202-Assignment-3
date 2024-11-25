@@ -346,6 +346,23 @@ public void SimulateData_ShouldReturnOutOfRange_ForFaultySensor()
     Assert.True(data > sensor.MaxValue); // Faulty data is out of range
 }
 
+[Fact]
+public void AnomalyDetection_ShouldReturnFalse_ForLessThanFiveDataPoints()
+{
+    // Arrange
+    var service = new SensorService();
+    var sensor = new Sensor
+    {
+        Name = "Test Sensor",
+        DataHistory = new List<double> { 22, 23 }
+    };
+
+    // Act
+    var isAnomaly = service.AnomalyDetection(sensor);
+
+    // Assert
+    Assert.False(isAnomaly);
+}
 
     }
 }
