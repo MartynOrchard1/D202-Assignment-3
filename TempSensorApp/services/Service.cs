@@ -67,7 +67,10 @@ namespace TempSensorApp.services
                             Console.WriteLine("\nExiting Application...");
                             break;
                         }
-
+                        else {
+                            Console.WriteLine("\nInvalid Choice. Resuming sensor generation...");
+                            continue;
+                        }
                     }
                 }
 
