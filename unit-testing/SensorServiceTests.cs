@@ -550,6 +550,25 @@ namespace unit_testing
             mockService.Verify(s => s.SimulateData(sensor), Times.AtLeastOnce);
         }
 
+        [Fact]
+        public void StoreData_ShouldAddDataToDataHistory()
+        {
+            // Arrange
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double>() // Start with an empty history
+            };
+
+            var service = new SensorService(Mock.Of<IConsoleService>());
+
+            // Act
+            service.StoreData(sensor, 22.5);
+
+            // Assert
+            Assert.Single(sensor.DataHistory); // Ensure one item is added
+            Assert.Equal(22.5, sensor.DataHistory[0]); // Ensure the correct data is added
+        }
 
     }
 }
