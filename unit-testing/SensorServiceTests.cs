@@ -83,5 +83,95 @@ namespace unit_testing
             var logFileContent = File.ReadAllText("logs/sensor_log.txt");
             Assert.Contains(data.ToString(), logFileContent);
         }
+
+
+        public class ProgramHelper
+        {
+            public Sensor InitializeAndStartSensor(SensorService service)
+            {
+                var sensor = service.InitSensor("Sensor 1", "Data Center", 22, 24);
+                Console.WriteLine("Starting temperature sensor simulation...");
+                return sensor;
+            }
+        }
+
+        [Fact]
+        public void InitializeAndStartSensor_ShouldReturnValidSensor()
+        {
+            // Arrange
+            var service = new SensorService();
+            var helper = new ProgramHelper();
+
+            // Act
+            var sensor = helper.InitializeAndStartSensor(service);
+
+            // Assert
+            Assert.NotNull(sensor);
+            Assert.Equal("Sensor 1", sensor.Name);
+            Assert.Equal("Data Center", sensor.Location);
+        }
+
+        [Fact]
+        public void StoreData_ShouldAddDataToHistory()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double>()
+            };
+
+            // Act
+            service.StoreData(sensor, 22.5);
+
+            // Assert
+            Assert.Single(sensor.DataHistory);
+            Assert.Equal(22.5, sensor.DataHistory[0]);
+        }
+
+        [Fact]
+        public void AnomalyDetection_ShouldReturnTrue_ForSignificantDeviation()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor
+            {
+                Name = "Test Sensor",
+                DataHistory = new List<double> { 22, 22, 22, 22, 28 }
+            };
+
+            // Act
+            var isAnomaly = service.AnomalyDetection(sensor);
+
+            // Assert
+            Assert.True(isAnomaly);
+        }
+
+        [Fact]
+        public void InitSensor_ShouldThrowException_ForInvalidRange()
+        {
+            // Arrange
+            var service = new SensorService();
+
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => service.InitSensor("Sensor 1", "Lab", 25, 22));
+        }
+
+        [Fact]
+        public void AnomalyDetection_ShouldReturnFalse_ForEmptyHistory()
+        {
+            // Arrange
+            var service = new SensorService();
+            var sensor = new Sensor { DataHistory = new List<double>() };
+
+            // Act
+            var isAnomaly = service.AnomalyDetection(sensor);
+
+            // Assert
+            Assert.False(isAnomaly);
+        }
+
+        
     }
 }
