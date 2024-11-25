@@ -507,5 +507,26 @@ namespace unit_testing
             Assert.False(isAnomaly);
         }
 
+        [Fact]
+        public async Task StartSensor_ShouldOutputSensorStartedMessage()
+        {
+            // Arrange
+            var mockConsole = new Mock<IConsoleService>();
+            var mockService = new SensorService(mockConsole.Object);
+            var sensor = mockService.InitSensor("Sensor 1", "Data Center", 22, 24);
+
+            mockConsole.Setup(c => c.KeyAvailable).Returns(false); // No key pressed initially
+
+            // Act
+            var task = mockService.StartSensor(sensor);
+
+            // Allow the method to run briefly
+            await Task.Delay(200);
+
+            // Assert
+            mockConsole.Verify(c => c.WriteLine("Sensor Started. Press 'P' to pause and view options."), Times.Once);
+        }
+
+
     }
 }
