@@ -206,5 +206,14 @@ namespace unit_testing
             // Assert
             Assert.False(isAnomaly);
         }
+        [Fact]
+        public void InitSensor_ShouldThrowException_WhenMinValueIsNegative() 
+        {
+            //Arrange
+            var service = new SensorService();
+
+            // Act & Assert
+            
+        }
     }
 }
