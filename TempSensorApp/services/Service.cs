@@ -78,7 +78,7 @@ namespace TempSensorApp.services
         }
 
         // Start the Sensor
-        public async Task StartSensor(Sensor sensor)
+        public virtual async Task StartSensor(Sensor sensor)
         {
             _console.WriteLine("Sensor Started. Press 'P' to pause and view options.");
 
@@ -150,7 +150,7 @@ namespace TempSensorApp.services
         }
 
         // Detect Anomalies
-        public bool AnomalyDetection(Sensor sensor)
+        public virtual bool AnomalyDetection(Sensor sensor)
         {
             if (sensor.DataHistory.Count < 5) return false;
 
