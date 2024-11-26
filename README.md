@@ -156,7 +156,19 @@ If there is a coverage report in the TestResults folder inside of unit-testing d
 
 ![image](https://github.com/user-attachments/assets/f4b67546-9f1d-4716-b586-ec2425aaa423)
 
+**If there is no coverage report already in the Test Results Folder or there is not test reports folder at all inside of the unit-testing folder don't worry there are just some additional steps to the above:**
+1. In VSC's terminal do the following:
+  - `cd unit-testing`
+  - `dotnet test --collect:"XPlat Code Coverage"`
+2. Those 2 command's will generate a coverage report for you. The output can be seen below:
+![image](https://github.com/user-attachments/assets/55c86bc6-aefe-4b50-9452-3b5f88d828d4)
+3. Notice the 'attachements' section at the bottom of the screenshot. That is what your Coverage Report Folder will be called. As seen below:
+![image](https://github.com/user-attachments/assets/dd02bd37-648b-49a1-89e7-f584d8dc3791)
 
+
+
+**IF YOU GET AN ERROR WHEN GENERATING A REPORT DON'T WORRY JUST RE-RUN THE 2ND COMMAND AGAIN UNTIL THERE IS NO ERROR**
+The reason for the above is that in the SensorServiceTests.cs file there is a unit test that tests the random number and expects it to be outside the range, in somecases the random number can be inside of the declared range and will declare an issue however re-running the command will ideally fix it.
 
 
 
