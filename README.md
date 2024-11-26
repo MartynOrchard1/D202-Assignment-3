@@ -164,6 +164,7 @@ If there is a coverage report in the TestResults folder inside of unit-testing d
 ![image](https://github.com/user-attachments/assets/55c86bc6-aefe-4b50-9452-3b5f88d828d4)
 3. Notice the 'attachements' section at the bottom of the screenshot. That is what your Coverage Report Folder will be called. As seen below:
 ![image](https://github.com/user-attachments/assets/dd02bd37-648b-49a1-89e7-f584d8dc3791)
+4. Just repeat the steps above to access the coverage report :) 
 
 
 
