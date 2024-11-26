@@ -6,4 +6,5 @@ namespace TempSensorApp.services
         ConsoleKeyInfo ReadKey(bool intercept);
         void WriteLine(string message);
     }
+
 }

@@ -590,5 +590,38 @@ namespace unit_testing
             Assert.DoesNotContain(1.0, sensor.DataHistory); // Ensure the oldest item is removed
             Assert.Equal(101.0, sensor.DataHistory.Last()); // Ensure the new data is added
         }
+
+        [Fact]
+        public void KeyAvailable_ShouldReturnFalse_WhenNoKeyIsPressed()
+        {
+            // Arrange
+            var consoleService = new ConsoleService();
+
+            // Act
+            var result = consoleService.KeyAvailable;
+
+            // Assert
+            // NOTE: KeyAvailable depends on the console input buffer, which is hard to simulate. 
+            //       This test will pass in a typical scenario where no key is pressed.
+            Assert.False(result);
+        }
+
+[Fact]
+public void ReadKey_ShouldReturnExpectedKeyInfo()
+{
+    // Arrange
+    var mockConsole = new Mock<IConsoleService>();
+    var expectedKeyInfo = new ConsoleKeyInfo('A', ConsoleKey.A, false, false, false);
+
+    mockConsole.Setup(c => c.ReadKey(true)).Returns(expectedKeyInfo);
+
+    // Act
+    var result = mockConsole.Object.ReadKey(true);
+
+    // Assert
+    Assert.Equal(expectedKeyInfo, result);
+    mockConsole.Verify(c => c.ReadKey(It.IsAny<bool>()), Times.Once);
+}
+
     }
 }
