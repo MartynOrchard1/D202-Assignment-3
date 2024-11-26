@@ -55,7 +55,11 @@ This project implements a .NET Core Application that simulates and processes tem
 - To run the application you would run the following command:
   - `dotnet run`
 - You should see some output in the terminal such as the following:
-  - ![image](https://github.com/user-attachments/assets/da100136-df4d-43e0-8792-03a1c6d6a55b)
+  - ![image](https://github.com/user-attachments/assets/d864f6f4-8127-4ab5-adaa-5fb0d19bb478)
+    - You may notice that if you press 'P' on your keyboard you get some options:
+      - 1. **Continue:** This continues Sensor Data Generation as normal
+      - 2. **Exit:** This exits the loop and will stop the application.
+    - If you enter a random number/letter on your keyboard the application will continue as normal. 
   - As mentioned above you can monitor anomalies the sensor data is flagged and logged to the console.
     - Anomalies are not added to the sensor log.txt file!
 - Data is then logged out to the Log file in the logs folder as can be seen here:
