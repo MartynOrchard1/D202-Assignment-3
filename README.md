@@ -117,10 +117,14 @@ My Unit Tests are written with xUnit and Moq to ensure each component functions 
   - Mock External interactions with program.cs
 <br />
 
-![image](https://github.com/user-attachments/assets/bbd81337-3073-4f84-874b-a29e8b27015b)
 
-The above image showcases the test suite within our .NET project.
-**Breakdown:**
+
+The below image showcases the test suite within our .NET project:
+<br />
+![image](https://github.com/user-attachments/assets/bbd81337-3073-4f84-874b-a29e8b27015b)
+<br />
+<br />
+**Breakdown of The Above Image:**
 - Passed:
   - Indicates that all test in the suite passed successfuly
   - In our case we had 34 passes which is great.
