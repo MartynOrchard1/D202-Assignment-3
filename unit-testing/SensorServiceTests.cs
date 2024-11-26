@@ -605,23 +605,5 @@ namespace unit_testing
             //       This test will pass in a typical scenario where no key is pressed.
             Assert.False(result);
         }
-
-[Fact]
-public void ReadKey_ShouldReturnExpectedKeyInfo()
-{
-    // Arrange
-    var mockConsole = new Mock<IConsoleService>();
-    var expectedKeyInfo = new ConsoleKeyInfo('A', ConsoleKey.A, false, false, false);
-
-    mockConsole.Setup(c => c.ReadKey(true)).Returns(expectedKeyInfo);
-
-    // Act
-    var result = mockConsole.Object.ReadKey(true);
-
-    // Assert
-    Assert.Equal(expectedKeyInfo, result);
-    mockConsole.Verify(c => c.ReadKey(It.IsAny<bool>()), Times.Once);
-}
-
     }
 }
