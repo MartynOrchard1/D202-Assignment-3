@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TempSensorApp
 {
-    class Program
-{
+    internal class Program
+    {
     static async Task Main(string[] args)
     {
         await RunAsync();

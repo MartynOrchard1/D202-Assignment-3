@@ -20,7 +20,7 @@ namespace TempSensorApp.services
         }
 
         // Initialize Sensor
-        public Sensor InitSensor(string name, string location, double minValue, double maxValue)
+        public virtual Sensor InitSensor(string name, string location, double minValue, double maxValue)
         {
             if (minValue >= maxValue)
             {
@@ -132,7 +132,7 @@ namespace TempSensorApp.services
         }
 
         // Log Sensor Data
-        public void LogData(double data)
+        public virtual void LogData(double data)
         {
             string log = $"{DateTime.Now}: {data}"; // Logs timestamp with data
             _console.WriteLine(log); // Output log to the console

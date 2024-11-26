@@ -4,13 +4,14 @@ using System.IO;
 using System.Threading.Tasks;
 using TempSensorApp.services;
 using TempSensorModels;
+using TempSensorApp;
 
 namespace unit_testing
 {
     public class ProgramTests
     {
         [Fact]
-        public async Task RunAsync_ShouldInitializeAndRunSensor()
+        public virtual async Task RunAsync_ShouldInitializeAndRunSensor()
         {
             // Arrange
             var mockConsoleService = new Mock<IConsoleService>();
@@ -35,7 +36,7 @@ namespace unit_testing
         }
 
         [Fact]
-        public async Task RunAsync_ShouldWriteStartingMessageToConsole()
+        public virtual async Task RunAsync_ShouldWriteStartingMessageToConsole()
         {
             // Arrange
             var output = new StringWriter();
