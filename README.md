@@ -153,6 +153,7 @@ If there is a coverage report in the TestResults folder inside of unit-testing d
 ![image](https://github.com/user-attachments/assets/3e58fcde-69e7-48c6-8be3-7634dd6e4c60)
 9. Output should look like this:
 <br />
+
 ![image](https://github.com/user-attachments/assets/f4b67546-9f1d-4716-b586-ec2425aaa423)
 
 
