@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ko2X90yoJq8=",
+  "dgSpecHash": "Q/QK4jG4LGI=",
   "success": true,
-  "projectFilePath": "D:\\development\\Web-Assignment03\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
+  "projectFilePath": "C:\\Users\\ASUSLP\\Documents\\GitHub\\D202-Assignment-3\\TempSensorApp\\TempSensorApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\leroy\\.nuget\\packages\\coverlet.msbuild\\6.0.2\\coverlet.msbuild.6.0.2.nupkg.sha512"
+    "C:\\Users\\ASUSLP\\.nuget\\packages\\coverlet.msbuild\\6.0.2\\coverlet.msbuild.6.0.2.nupkg.sha512",
+    "C:\\Users\\ASUSLP\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.13\\microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\ASUSLP\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.13\\microsoft.windowsdesktop.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\ASUSLP\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.13\\microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
+    "C:\\Users\\ASUSLP\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.13\\microsoft.netcore.app.host.win-x64.8.0.13.nupkg.sha512"
   ],
   "logs": []
 }
